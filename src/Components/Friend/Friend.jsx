@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaVideo } from 'react-icons/fa';
 import { FiArchive } from 'react-icons/fi';
 import { IoIosCall, IoMdText } from 'react-icons/io';
 import { MdDeleteOutline } from 'react-icons/md';
 import { RiNotificationSnoozeLine } from 'react-icons/ri';
 import { useLoaderData, useParams } from 'react-router';
+import { FriendContextAPI } from '../FriendContext/FriendContext';
 
 const Friend = () => {
     const { id } = useParams()
     const friendData = useLoaderData();
     const friend = friendData.find(f => f.id == id)
-    console.log(friend)
+    const {handleCall, handleText, handleVideo} = useContext(FriendContextAPI)
 
     return (
         <div className=' bg-[#F8FAFC]'>
@@ -29,7 +30,7 @@ const Friend = () => {
                                 </div>
 
                                 <div>
-                                    {friend.tags.map(f => <p className='badge p-3 text-white bg-green-500'>{f}</p>)}
+                                    {friend.tags.map((f,index) => <p key={index} className='badge p-3 text-white bg-green-500'>{f}</p>)}
                                 </div>
                                 <div>
                                     <p className='text-[16px] italic text-[#64748B]'>"{friend.bio}"</p>
@@ -85,17 +86,17 @@ const Friend = () => {
                                 </div>
 
                                 <div className="grid grid-cols-3 gap-3 mt-4">
-                                    <button className="btn flex flex-col items-center gap-1">
+                                    <button onClick={()=> handleCall(friend)} className="btn flex flex-col items-center gap-1">
                                         <IoIosCall />
                                         Call
                                     </button>
 
-                                    <button className="btn flex flex-col items-center gap-1">
+                                    <button onClick={()=> handleText(friend)} className="btn flex flex-col items-center gap-1">
                                         <IoMdText />
                                         Text
                                     </button>
 
-                                    <button className="btn flex flex-col items-center">
+                                    <button onClick={()=> handleVideo(friend)} className="btn flex flex-col items-center">
                                         <FaVideo className='text-5xl' />
                                         Video
                                     </button>
