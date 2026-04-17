@@ -16,9 +16,9 @@ const Friend = () => {
     return (
         <div className=' bg-[#F8FAFC]'>
             <div className='container mx-auto'>
-                <div className='grid grid-cols-3 py-20'>
+                <div className='grid grid-cols-1 gap-5 md:grid-cols-3 py-20'>
                     <div className='col-span-1 '>
-                        <div className="card bg-base-100 w-96 shadow-sm p-6">
+                        <div className="card bg-base-100 shadow-sm p-6">
                             <figure>
                                 <img className='rounded-full'
                                     src={friend.picture} />
@@ -40,15 +40,15 @@ const Friend = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex flex-col w-96.25 mt-4 space-y-2'>
+                        <div className='flex flex-col w-full md:w-96 mt-4 space-y-2'>
                             <button className='btn text-[16px] font-medium'><RiNotificationSnoozeLine /> Snooze 2 weeks</button>
                             <button className='btn text-[16px] font-medium'><FiArchive /> Archive</button>
                             <button className='btn text-[16px] font-medium text-red-500'><MdDeleteOutline /> Delete</button>
                         </div>
                     </div>
-                    <div className='col-span-2'>
+                    <div className='col-span-1 md:col-span-2 mt-5 md:mt-0'>
                         <div>
-                            <div className='grid grid-cols-3 gap-9 '>
+                            <div className='grid grid-cols-1 md:grid-cols-3 gap-9 '>
                                 <div className='text-center shadow-sm bg-white p-8 rounded-lg'>
                                     <h1 className='text-3xl font-semibold text-[#244D3F]'>{friend.days_since_contact}</h1>
                                     <p className='text-lg text-[#64748B]'>Days Since Contact</p>

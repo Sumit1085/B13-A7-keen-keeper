@@ -1,12 +1,12 @@
 import React, { createContext, useState } from "react";
-import friendsData from "../../Data/data.json";
+import friendsData from "../../../public/data.json";
 import { toast } from "react-toastify";
 
 export const FriendContextAPI = createContext();
 
 const FriendContext = ({ children }) => {
   const [friends, setFriends] = useState(friendsData);
-  const [timeline, setTimeline] = useState([]); // ✅ FIXED
+  const [timeline, setTimeline] = useState([]); 
 
   const addToTimeline = (friend, type) => {
     const exists = timeline.find((item) => item.id === friend.id && item.type === type);

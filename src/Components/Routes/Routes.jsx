@@ -14,7 +14,7 @@ export const Router = createBrowserRouter([
             {index: true, Component: HomePage},
             {path: '/timeline' , Component: Timeline},
             {path: '/stats' , Component: Stats},
-            {path: '/Friend/:id', loader: ()=> fetch('/src/Data/data.json'),Component: Friend}
+            {path: '/Friend/:id', loader: ()=> fetch('/data.json'),Component: Friend}
             //  {path: "/bookDetails/:id",loader: ()=> fetch('/booksData.json'), Component: BookDetails}
         ]
     }
