@@ -7,8 +7,8 @@ const HomePage = () => {
     return (
         <div className=' bg-[#F8FAFC]'>
             <div className='container mx-auto'>
-                <div className='py-20 text-center'>
-                    <h1 className='text-5xl font-bold'>Friends to keep close in your life</h1>
+                <div className='py-10 md:py-20 text-center'>
+                    <h1 className=' text-4xl md:text-5xl font-bold'>Friends to keep close in your life</h1>
                     <p className='mt-4 text-[#1F2937]'>Your personal shelf of meaningful connections. Browse, tend, and nurture the <br />relationships that matter most.</p>
                     <button className='btn mt-8 bg-[#244D3F] text-white'>+ Add a Friend</button>
                 </div>

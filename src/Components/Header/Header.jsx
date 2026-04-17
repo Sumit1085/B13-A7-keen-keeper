@@ -11,9 +11,9 @@ const Header = () => {
             <div className='bg-white border-b border-[#bdc3c7]'>
                 <div className="navbar bg-base-100 container mx-auto">
                     <div className="flex-1">
-                        <a className=" text-2xl"><span className='text-black font-bold'>Keen</span><span className='text-[#244D3F] font-semibold'>Keeper</span></a>
+                        <a className="text-xl md:text-2xl"><span className='text-black font-bold'>Keen</span><span className='text-[#244D3F] font-semibold'>Keeper</span></a>
                     </div>
-                    <div className="flex gap-3">
+                    <div className="flex gap-1 md:gap-3">
                         <NavLink to={'/'} className={({ isActive }) =>
                             `btn ${isActive ? "bg-[#244D3F] text-white" : ""}`
                         }><FaHome />Home</NavLink>
