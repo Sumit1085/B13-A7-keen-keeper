@@ -17,6 +17,7 @@ const HomePage = () => {
                     <SummaryCard/>
                 </div>
                 <div className=''>
+                   
                     <Friends></Friends>
                 </div>
             </div>

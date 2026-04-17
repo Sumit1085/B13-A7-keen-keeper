@@ -3,11 +3,11 @@ import { FriendContextAPI } from '../FriendContext/FriendContext';
 import text from '../../assets/text.png'
 import call from '../../assets/call.png'
 import video from '../../assets/video.png'
+import Nodata from '../Nodata/Nodata';
+
 
 const Timeline = () => {
-  const { friends, setFriends, timeline, setTimeline, handleCall, handleText, handleVideo } = useContext(FriendContextAPI)
-  console.log("timeline", timeline)
-  console.log("friends", friends)
+  const { timeline } = useContext(FriendContextAPI)
   const getTimelineImage = (type) => {
     if (type === "call") return call;
     if (type === "text") return text;
@@ -17,27 +17,34 @@ const Timeline = () => {
   return (
     <div className="bg-[#F8FAFC] p-6">
       <div className='container mx-auto'>
-        <h2 className="text-xl font-semibold mb-4">Timeline</h2>
+        <h2 className="text-[48px] font-semibold mb-4">Timeline</h2>
 
-        <div className=''>
-          <div className="space-y-4 mt-4 bg-white">
-          {timeline.map((item, index) => (
-            <div key={index} className="flex items-center gap-4 p-3 rounded-lg">
+        {timeline.length === 0 ? (<div className='flex justify-center my-6'>
+         <Nodata/>
+        </div>) : (<div className=''>
+            <div className=" mt-4 space-y-6">
+              {timeline.map((item, index) => (
+                <div key={index} className="flex items-center bg-white  gap-4 p-3 rounded-lg">
+                
+                  <img
+                    src={getTimelineImage(item.type)}
+                    className="w-8 h-8"
+                  />
 
-              <img
-                src={getTimelineImage(item.type)}
-                className="w-12 h-12"
-              />
+                  <div>
+                    <p className="text-[20px] font-medium">{`${item.type} with ${item.name}`}</p>
+                    <p className="text-[16px] text-gray-500">{new Date(item.next_due_date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "2-digit",
+                      year: "numeric",
+                    })}</p>
+                  </div>
 
-              <div>
-                <p className="font-medium">{`${item.type} with ${item.name}`}</p>
-                <p className="text-sm text-gray-500">{item.type} action</p>
-              </div>
-
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-        </div>
+          </div>)
+        }
       </div>
 
     </div>
